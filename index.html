@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SystemJS React Hooks</title>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "react": "app:react@16.13.0",
+          "react-dom": "app:react-dom@16.13.0"
+        },
+        "scopes": {
+          "http://localhost:5001/": {
+            "react": "http://localhost:5001/dist/react.js",
+            "react-dom": "http://localhost:5001/dist/react-dom.js"
+          }
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.1.7/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.1.7/dist/extras/named-register.js"></script>
+    <script src="/dist/main.js"></script>
+  </head>
+  <body>
+    <div id="var-root"></div>
+    <div id="url-root"></div>
+    <script
+      type="systemjs-module"
+      src="http://localhost:5002/dist/main.js"
+    ></script>
+    <script
+      type="systemjs-module"
+      src="http://localhost:5001/dist/url.js"
+    ></script>
+  </body>
+</html>
